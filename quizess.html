@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HistoryGlobe - Quizzes</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f4e3; /* Warm beige tone for historical theme */
+            }
+        </style>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <!-- Header Navigation Bar -->
+        <header class="bg-blue-900 text-white shadow-md">
+            <div class="container mx-auto flex justify-between items-center p-4">
+                <div class="text-2xl font-bold">HistoryGlobe</div>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="hover:underline">Home</a></li>
+                        <li><a href="./index.html" class="hover:underline">Map</a></li>
+                        <li><a href="./quizess.html" class="hover:underline">Quizzes</a></li>
+                        <li><a href="#" class="hover:underline">Profile</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <button class="bg-yellow-500 text-black px-4 py-2 rounded">Login</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quiz Setup Section -->
+        <section class="bg-white shadow-md py-6">
+            <div class="container mx-auto px-4">
+                <h2 class="text-xl font-bold mb-4">Quiz Setup</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Era Selection -->
+                    <div>
+                        <label for="era" class="block mb-2 font-semibold">Select Era</label>
+                        <select id="era" class="w-full border border-gray-300 rounded px-4 py-2">
+                            <option value="">Ancient Egypt</option>
+                            <option value="">Middle Ages</option>
+                            <option value="">World War II</option>
+                        </select>
+                    </div>
+                    <!-- Region Selection -->
+                    <div>
+                        <label for="region" class="block mb-2 font-semibold">Select Region</label>
+                        <select id="region" class="w-full border border-gray-300 rounded px-4 py-2">
+                            <option value="">Europe</option>
+                            <option value="">Asia</option>
+                            <option value="">Americas</option>
+                        </select>
+                    </div>
+                    <!-- Quiz Type -->
+                    <div>
+                        <label class="block mb-2 font-semibold">Quiz Type</label>
+                        <div class="flex space-x-4">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded">Multiple Choice</button>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded">True/False</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <button class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">Start Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Interface -->
+        <main class="flex-grow bg-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <!-- Question Display -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold">Question 3 of 10</h3>
+                        <p class="text-gray-700 mt-2">What year did the World War II begin?</p>
+                    </div>
+                    <!-- Answer Options -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <button class="bg-gray-200 px-4 py-3 rounded hover:bg-gray-300">1939</button>
+                        <button class="bg-gray-200 px-4 py-3 rounded hover:bg-gray-300">1941</button>
+                        <button class="bg-gray-200 px-4 py-3 rounded hover:bg-gray-300">1945</button>
+                        <button class="bg-gray-200 px-4 py-3 rounded hover:bg-gray-300">1936</button>
+                    </div>
+                    <!-- Feedback -->
+                    <div class="mt-6">
+                        <p class="text-green-600 font-semibold">Correct! World War II began in 1939.</p>
+                    </div>
+                    <!-- Navigation Buttons -->
+                    <div class="mt-6 flex justify-between">
+                        <button class="bg-yellow-500 text-black px-4 py-2 rounded">Skip Question</button>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Next Question</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Feedback and Progress Section -->
+        <section class="bg-white shadow-md py-6">
+            <div class="container mx-auto px-4">
+                <h2 class="text-xl font-bold mb-4">Quiz Summary</h2>
+                <p class="text-gray-700">You scored 7 out of 10 correct answers.</p>
+                <div class="mt-4">
+                    <button class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">View Progress</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-blue-900 text-white py-4">
+            <div class="container mx-auto flex justify-between items-center px-4">
+                <button class="bg-yellow-500 text-black px-4 py-2 rounded">Retry Quiz</button>
+                <button class="bg-yellow-500 text-black px-4 py-2 rounded">Explore More Quizzes</button>
+                <button class="bg-yellow-500 text-black px-4 py-2 rounded">Return Home</button>
+            </div>
+        </footer>
+    </body>
+    </html>
