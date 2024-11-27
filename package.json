@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "historyglobe-template",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "type": "module"  
+  "description": ""
 }

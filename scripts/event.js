@@ -1,4 +1,5 @@
-import {historyData} from "./api.js";
+import { historyData } from "./api.js";
+
 
 // Function to fetch and display a random event with its country  
 function fetchRandomEvent() {
@@ -43,4 +44,4 @@ window.console = new Proxy(console, {
         }
         return target[prop];
     }
-});  
+});

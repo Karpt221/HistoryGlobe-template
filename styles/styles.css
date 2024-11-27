@@ -1,3 +1,6 @@
+@import url('resets.css');
+
+
 /* Global Styles */
 body {
     margin: 0;
@@ -186,3 +189,4 @@ body {
       align-items: center;
     }
   }
+
