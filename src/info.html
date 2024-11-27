@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Historical Events on March 22</title>
+        <script>
+            // Provided historyData object
+            const historyData = {
+                host: "https://history.muffinlabs.com/",
+                load: function (options) {
+                    var callback, month, day, host;
+                    var path = '/date';
+
+                    host = this.host;
+
+                    if (typeof options == "function") {
+                        callback = options;
+                    } else if (typeof options == "object") {
+                        callback = options.callback;
+                    }
+
+                    if (typeof options.month === "undefined") {
+                        options.month = new Date().getMonth() + 1;
+                    }
+
+                    if (typeof options.day === "undefined") {
+                        options.day = new Date().getDate();
+                    }
+
+                    month = options.month;
+                    day = options.day;
+                    path = path + '/' + month + '/' + day;
+
+                    if (options.host !== undefined) {
+                        host = options.host;
+                    }
+
+                    return fetch(host + path, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                    })
+                        .then(response => response.json())
+                        .then((data) => {
+                            if (callback) {
+                                callback(data);
+                            }
+                            return data;
+                        });
+                }
+            };
+
+            // Function to fetch and display data for March 22
+            function fetchMarch22Events() {
+                historyData.load({
+                    month: 3, // March
+                    day: 22,  // 22nd
+                    callback: function (data) {
+                        const eventsContainer = document.getElementById('events');
+                        const events = data.data.Events;
+                        console.log(data.data);
+
+                        // Clear the container
+                        eventsContainer.innerHTML = '';
+
+                        // Populate the container with events
+                        events.forEach(event => {
+                            const eventElement = document.createElement('div');
+                            eventElement.classList.add('event');
+                            eventElement.innerHTML = `
+                                <p><strong>Year:</strong> ${event.year}</p>
+                                <p><strong>Description:</strong> ${event.text}</p>
+                                <p>Wiki: ${event.links[0].link}</p>
+
+                            `;
+                            console.log(event.links[0]);
+                            eventsContainer.appendChild(eventElement);
+                        });
+                    }
+                });
+            }
+
+            // Fetch events when the page loads
+            window.onload = fetchMarch22Events;
+        </script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                padding: 0;
+                background-color: #f4f4f9;
+                color: #333;
+            }
+            h1 {
+                text-align: center;
+                color: #444;
+            }
+            #events {
+                margin-top: 20px;
+            }
+            .event {
+                background: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 15px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .event p {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Historical Events on March 22</h1>
+        <div id="events">
+            <p>Loading events...</p>
+        </div>
+    </body>
+    </html>

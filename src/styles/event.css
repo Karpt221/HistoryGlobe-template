@@ -1,0 +1,27 @@
+#history-widget {  
+    background: white;  
+    padding: 15px;  
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);  
+    font-family: Arial, sans-serif; 
+    
+
+    & a {
+        color: blue;
+        text-decoration: underline;
+    }
+    & h2 {  
+        font-size: 25px;  
+        /* border-bottom: 5px solid #eee;   */
+    }  
+
+    & #event {  
+        font-size: 20px;  
+        line-height: 1.4;  
+    
+        & p {  
+            margin: 0;  
+        }  
+    }  
+}  
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HistoryGlobe - Main Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles/map.css" />
+    <link rel="stylesheet" href="./styles/slider.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/event.css">
+    <!-- Наш файл з картою -->
+    <script defer src="./scripts/map.js"></script>
+    <script defer src="./scripts/slider.js"></script>
+    <script defer src="./scripts/modal.js"></script>
+    <script type="module" src="./scripts/event.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f4e3;
+            /* Warm beige tone for historical theme */
+        }
+
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- Header Navigation Bar -->
+    <header class="bg-blue-900 text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="text-2xl font-bold">HistoryGlobe</div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="./index.html" class="hover:underline">Map</a></li>
+                    <li><a href="./quizess.html" class="hover:underline">Quizzes</a></li>
+                    <li><a href="#" class="hover:underline">Profile</a></li>
+                </ul>
+            </nav>
+            <div>
+                <a href="./login.html"><button class="bg-yellow-500 text-black px-4 py-2 rounded">Login</button></a>
+                
+            </div>
+        </div>
+    </header>
+
+
+    <div id="map"></div>
+
+    <div id="history-widget">
+        <h2>Today in History</h2>
+        <div id="event">
+            <p>Loading a random historical event...</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+    <div class="country-modal">
+        <span class="modal-close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-content"></div>
+    </div>
+
+    <div id="slider-container">
+        <div id="year-display">
+            Year: <span id="year-input" contenteditable="true">2024</span>
+        </div>
+        <input id="year-slider" type="range" min="1100" max="2024" step="1" value="2024">
+        <div id="error-message">Invalid year! Please enter a year between 1100 and 2024.</div>
+    </div>
+   
+</body>
+
+</html>

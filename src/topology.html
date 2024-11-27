@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive World Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles/map.css" />
+    <link rel="stylesheet" href="./styles/slider.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+</head>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="history-widget">
+        <h2>Today in History</h2>
+        <div id="event">
+            <p>Loading a random historical event...</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+    <div class="country-modal">
+        <span class="modal-close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-content"></div>
+    </div>
+
+    <div id="slider-container">
+        <div id="year-display">
+            Year: <span id="year-input" contenteditable="true">2024</span>
+        </div>
+        <input id="year-slider" type="range" min="1100" max="2024" step="1" value="2024">
+        <div id="error-message">Invalid year! Please enter a year between 1100 and 2024.</div>
+    </div>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Наш файл з картою -->
+    <script src="./scripts/map.js"></script>
+    <script src="./scripts/slider.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script type="module" src="./scripts/event.js"></script>
+</body>
