@@ -1,5 +1,3 @@
-import { openModal } from "./modal.js";
-
 // Initialize the map  
 var map = L.map('map', {
     renderer: L.canvas(), // Use canvas renderer for better performance with borders  
