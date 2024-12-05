@@ -1,110 +1,319 @@
-@import url('resets.css');
+@import url('resets.css');  
 
-:root {
-    font-size: 26px;
-}
+:root {  
+    font-size: 26px;  
+}  
 
-body {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
+body {  
+    display: flex;  
+    height: 100vh;  
+    align-items: center;  
+    justify-content: center;  
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);  
+}  
 
-form {
-    display: flex;
-    flex-direction: column;
+form {  
+    display: flex;  
+    flex-direction: column;  
+    transform: translateY(0);  
+    transition: transform 0.3s ease;  
+    .password-container {  
+        position: relative;  
+        display: flex;  
+        align-items: center;  
+        width: 100%;  
+        margin-bottom: 20px;  
+    }  
 
-    p {
-        text-align: center;
+
+    .return-btn .icon {  
+        width: 50px; 
+        transition: filter 0.3s ease; 
+    }  
+    
+    .return-btn .icon:hover {  
+        filter: brightness(0) saturate(100%) invert(18%) sepia(91%) saturate(7481%) hue-rotate(0deg) brightness(91%) contrast(119%);  
+    }  
+
+    .password-input-wrapper {  
+        position: relative;  
+        flex: 1;  
+    }  
+
+    .error-message {  
+        display: none; /* Hide by default */  
+        position: absolute;  
+        left: 0;  
+        bottom: -20px;  
+        font-size: 0.6rem;  
+        color: #ff6b6b;  
+        transition: opacity 0.3s ease;  
+    }  
+    
+    .error-message.show {  
+        display: block;  
+        animation: shake 0.5s ease-in-out;  
+    } 
+    input[type="password"] {  
+        &:not(:placeholder-shown):invalid {  
+            border-color: #E5E7EB; /* Default border color */  
+        }  
+    }   
+    .password-info {  
+        position: relative;  
+        width: 20px;  
+        height: 20px;  
+        margin-left: 10px;  
+        flex-shrink: 0;  
+        cursor: help;  
+    }  
+
+    .password-info::after {  
+        content: "?";  
+        position: absolute;  
+        width: 20px;  
+        height: 20px;  
+        background: #596D48;  
+        color: white;  
+        border-radius: 50%;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        font-size: 0.7rem;  
+        font-weight: bold;  
+    }  
+    .input-with-toggle {  
+        position: relative;  
+        display: flex;  
+        align-items: center;  
+    }  
+    
+    .toggle-password {  
+        position: absolute;  
+        right: 10px;  
+        top: 50%;  
+        transform: translateY(-50%);  
+        background: none;  
+        border: none;  
+        padding: 0;  
+        cursor: pointer;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        color: #596D48;  
+        opacity: 0.7;  
+        transition: opacity 0.3s ease;  
+    }  
+    
+    .toggle-password:hover {  
+        opacity: 1;  
+    }  
+    
+    .toggle-password:focus {  
+        outline: none;  
+        opacity: 1;  
+    }  
+    
+    .eye-icon,  
+    .eye-icon-slash {  
+        width: 20px;  
+        height: 20px;  
+    }  
+    
+    .hidden {  
+        display: none;  
+    }  
+    
+    /* Adjust input padding to accommodate the toggle button */  
+    .input-with-toggle input {  
+        padding-right: 40px;  
     }
+    .password-tooltip {  
+        visibility: hidden;  
+        position: absolute;  
+        left: calc(100% + 5px);  
+        top: 50%;  
+        transform: translateY(-50%);  
+        width: 250px;  
+        background: rgba(0, 0, 0, 0.8);  
+        color: white;  
+        padding: 10px;  
+        border-radius: 6px;  
+        font-size: 0.6rem;  
+        z-index: 100;  
+        opacity: 0;  
+        transition: opacity 0.3s ease;  
+    }  
 
-    >div {
-        width: 800px;
-        background-color: white;
-        box-shadow: 0px 1px 5px grey;
-        border-radius: 10px 10px 0 0 ;
-    }
+    .password-tooltip::before {  
+        content: "";  
+        position: absolute;  
+        left: -10px;  
+        top: 50%;  
+        transform: translateY(-50%);  
+        border-width: 5px;  
+        border-style: solid;  
+        border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;  
+    }  
 
-    h2 {
-        text-align: center;
-        padding: 20px 0;
-        margin: 0;
-    }
+    .password-info:hover .password-tooltip {  
+        visibility: visible;  
+        opacity: 1;  
+    }  
 
-    h2 {
-        font-weight: 900;
-        font-size: 1.3rem;
-    }
+    &:hover {  
+        transform: translateY(-5px);  
+    }  
 
-    button {
-        background-color: #596D48;
-        color: white;
-        border-radius: 0 0 10px 10px;
-        border: none;
-        padding: 10px 40px;
-        font-weight: 900;
-        box-shadow: 0px 1px 5px grey;
-    }
+    p {  
+        text-align: center;  
+    }  
 
-    label::after {
-        content: '*';
-    }
+    >div {  
+        width: 800px;  
+        background-color: rgba(255, 255, 255, 0.95);  
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);  
+        backdrop-filter: blur(4px);  
+        border-radius: 10px 10px 0 0;  
+        border: 1px solid rgba(255, 255, 255, 0.18);  
+        transition: all 0.3s ease;  
 
-    input {
-        border: 1px solid #E5E7EB;
-        border-radius: 10px;
-        width: 240px;
+        &:hover {  
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);  
+        }  
+    }  
 
-        &:focus {
-            outline: none !important;
-            border-color: blue;
-            box-shadow: 0 0 5px #719ECE;
-        }
+    h2 {  
+        text-align: center;  
+        padding: 20px 0;  
+        margin: 0;  
+        background: linear-gradient(45deg, #596D48, #7a9164);  
+        -webkit-background-clip: text;  
+         background-clip: text;
+        -webkit-text-fill-color: transparent;  
+        font-weight: 900;  
+        font-size: 1.3rem;  
+    }  
 
-        &[type="password"]:invalid {
-            border-color: red;
+    .submit-btn {  
+        background: linear-gradient(45deg, #596D48, #7a9164);  
+        color: white;  
+        border-radius: 0 0 10px 10px;  
+        border: none;  
+        padding: 12px 40px;  
+        font-weight: 900;  
+        box-shadow: 0px 1px 5px grey;  
+        cursor: pointer;  
+        transition: all 0.3s ease;  
 
-            &+span::after {
-                content: '* Invalid format';
-                color: red;
+        &:hover {  
+            transform: translateY(-2px);  
+            box-shadow: 0 5px 15px rgba(89, 109, 72, 0.4);  
+        }  
 
-            }
-        }
+        &:active {  
+            transform: translateY(1px);  
+        }  
+    }  
 
-        &[type="password"]:valid {
-            border-color: green;
+    label {  
+        position: relative;  
+        transition: color 0.3s ease;  
 
-            &+span::after {
-                content: '* Valid';
-                color: green;
+        &:hover {  
+            color: #596D48;  
+        }  
 
-            }
-        }
+        &::after {  
+            content: '*';  
+            color: #ff6b6b;  
+            margin-left: 4px;  
+        }  
+    }  
 
-    }
+    input {  
+        border: 1px solid #E5E7EB;  
+        border-radius: 10px;  
+        width: 100%;  
+        padding: 8px 12px;  
+        transition: all 0.3s ease;  
 
+        &:hover {  
+            border-color: #596D48;  
+        }  
 
-    .flex-grid {
-        display: flex;
-        justify-content: center;
-        padding-bottom: 40px;
+        &:focus {  
+            outline: none !important;  
+            border-color: #596D48;  
+            box-shadow: 0 0 8px rgba(89, 109, 72, 0.3);  
+        }  
 
-        .col:not(.login){
-            margin-right: 80px;
-        }
-        .col.login input{
-            width: 300px;
-        }
+        &[type="password"] {  
+            &:not(:placeholder-shown):invalid {  
+                border-color: #ff6b6b;  
+            }  
 
-        .col>div {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            color: grey;
-            font-size: 0.7rem;
-        }
+            &:valid {  
+                border-color: #40c057;  
+            }  
 
+            &:not(:placeholder-shown):invalid + .error-message {  
+                content: '* Invalid format';  
+                display: block;  
+                animation: shake 0.5s ease-in-out;  
+            }  
 
-    }
+            &:valid + .error-message {  
+                content: '* Valid';  
+                display: block;  
+                color: #40c057;  
+                animation: slideIn 0.3s ease-in-out;  
+            }  
+        }  
+    }  
+
+    .flex-grid {  
+        display: flex;  
+        justify-content: center;  
+        padding: 40px;  
+        gap: 80px;  
+
+        .col:not(.login) {  
+            margin-right: 0;  
+        }  
+
+        .col.login input {  
+            width: 300px;  
+        }  
+
+        .col>div {  
+            display: flex;  
+            flex-direction: column;  
+            margin-top: 20px;  
+            color: #666;  
+            font-size: 0.7rem;  
+            transition: all 0.3s ease;  
+
+            &:hover {  
+                color: #333;  
+            }  
+        }  
+    }  
+}  
+
+@keyframes shake {  
+    0%, 100% { transform: translateX(0); }  
+    25% { transform: translateX(-5px); }  
+    75% { transform: translateX(5px); }  
+}   
+
+@keyframes slideIn {  
+    from {  
+        opacity: 0;  
+        transform: translateY(-10px);  
+    }  
+    to {  
+        opacity: 1;  
+        transform: translateY(0);  
+    }  
 }

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./styles/slider.css" />
     <link rel="stylesheet" href="./styles/modal.css" />
     <link rel="stylesheet" href="./styles/event.css">
+    <link rel="stylesheet" href="./styles/profile.css" />
     <!-- Наш файл з картою -->
     <script defer src="./scripts/map.js"></script>
     <script defer src="./scripts/slider.js"></script>
@@ -32,15 +33,25 @@
 
 <body class="flex flex-col min-h-screen">
     <!-- Header Navigation Bar -->
-    <header class="bg-blue-900 text-white shadow-md">
+    <header class="bg-green-700 text-white shadow-md">
         <div class="container mx-auto flex justify-between items-center p-4">
             <div class="text-2xl font-bold">HistoryGlobe</div>
-            <nav>
+            <nav class="nav-buttons">
                 <ul class="flex space-x-6">
-                    <li><a href="#" class="hover:underline">Home</a></li>
-                    <li><a href="./index.html" class="hover:underline">Map</a></li>
-                    <li><a href="./quizess.html" class="hover:underline">Quizzes</a></li>
-                    <li><a href="#" class="hover:underline">Profile</a></li>
+                    <li><a  href="./index.html" class="nav-button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">  
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  
+                                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />  
+                        </svg>  
+                        Map</a></li>
+                    <li><a href="./quizzes.html" class="nav-button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">  
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  
+                                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />  
+                        </svg>  
+                        Quizzes</a></li>
+                    <li><a href="./profile.html" class="nav-button">
+                        Profile</a></li>
                 </ul>
             </nav>
             <div>
@@ -70,10 +81,16 @@
         <div id="year-display">
             Year: <span id="year-input" contenteditable="true">2024</span>
         </div>
-        <input id="year-slider" type="range" min="1100" max="2024" step="1" value="2024">
+        <input id="year-slider" type="range" min="200" max="2024" value="2024">
         <div id="error-message">Invalid year! Please enter a year between 1100 and 2024.</div>
     </div>
-   
+    <!-- <div id="slider-container">  
+        <div id="year-display">  
+            Date: <input id="date-input" type="month" value="2024-01">  
+        </div>  
+        <input id="year-slider" type="range" min="200" max="2024" value="2024">  
+        <div id="error-message">Invalid year! Please enter a year between 200 and 2024.</div>  
+    </div> -->
 </body>
 
 </html>
